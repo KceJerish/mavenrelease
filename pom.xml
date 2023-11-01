@@ -8,18 +8,42 @@
     <artifactId>mavenRelease</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <scm>
+        <developerConnection>scm:git:file:/Users/j84544887/code1/mavenRelease/.git/</developerConnection>
+        <url>scm:git:file:/Users/j84544887/code1/mavenRelease/.git/</url>
+        <connection>scm:git:file:/Users/j84544887/code1/mavenRelease/.git/</connection>
+    </scm>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-<build>
-    <plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-release-plugin</artifactId>
-            <version>3.0.1</version>
-        </plugin>
-    </plugins>
-</build>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>3.0.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier></classifier>
+                            <excludes>
+                                <exclude>*-context.xml</exclude>
+                            </excludes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
